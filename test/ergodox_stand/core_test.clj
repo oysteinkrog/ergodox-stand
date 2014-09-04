@@ -1,6 +1,6 @@
-(ns ergodox-tent.core-test
+(ns ergodox-stand.core-test
   (:require [clojure.test :refer :all]
-            [ergodox-tent.core :refer :all]))
+            [ergodox-stand.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."

@@ -1,3 +1,7 @@
+## Fork info
+
+I (bchociej) forked this repo from [adereth/ergodox-tent](https://github.com/adereth/ergodox-tent) with the intention of implementing new features, including tilting, native millimeter dimensions, and full-hand version.
+
 # ergodox-tent
 
 A tent for the [Ergodox acrylic case designed by Litster](http://deskthority.net/wiki/ErgoDox).  The design was implemented using [clj-scad](https://github.com/farrellm/scad-clj).

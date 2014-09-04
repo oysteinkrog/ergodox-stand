@@ -8,7 +8,7 @@ I didn't know what I was doing when I cloned this repo. Maybe you don't either! 
 2.	Install openscad (I used my package manager for this)
 3.	`$ lein repl`
 4.	Make some changes to [src/ergodox_tent/core.clj](core.clj)
-5.	`user=> (use 'ergodox-tent.core :reload)')`
+5.	In the lein REPL (at the `user=> ` prompt), enter `(use 'ergodox-tent.core :reload)')`
 6.	Open [tent.scad](resources/tent.scad) in openscad
 7.	Repeat steps 4-6
 

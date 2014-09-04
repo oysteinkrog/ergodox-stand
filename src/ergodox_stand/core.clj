@@ -35,8 +35,8 @@
 ; Tenting and tilting affects how close the mirrored pieces sit to one
 ; another. Adjust these values so that the gaps are small but at least a
 ; few mm apart.
-(def mirror-x-gap 12)			; side-to-side gap between mirrored pieces
-(def mirror-y-gap 4)			; back-to-front gap between mirrored pieces
+(def mirror-x-gap 5)			; side-to-side gap between mirrored pieces
+(def mirror-y-gap 5)			; back-to-front gap between mirrored pieces
 
 ;; STOP CUSTOMIZING
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -130,10 +130,20 @@
 
 
 
-		;; HOLLOWED-OUT AREA
-		; remove the left side so 2 pieces can be made more efficiently
-		(translate [-10 0 (/ profile-height 2)]
-			(cube (+ rect-width 10) (- rect-depth 10) (+ profile-height 10))
+		;; HOLLOWED-OUT AREAS
+		; The more you hollow out, the cheaper!
+		(translate [10 0 (/ profile-height 2)]
+			(cube (+ rect-width 10) (- rect-depth 8) (+ profile-height 10))
+		)
+
+		; Lateral underside hollowing
+		(translate [0 0 (+ -10 (/ profile-height 2))]
+			(cube (+ 5 total-width) (- rect-depth 15) (+ profile-height 10))
+		)
+
+		; Front-back underside hollowing
+		(translate [0 0 (+ -10 (/ profile-height 2))]
+			(cube (- rect-width 11.5) (+ 5 total-depth) (+ profile-height 10))
 		)
 	) ; difference
 ) ; def main-base
@@ -150,7 +160,7 @@
 		rotated-clipped
 		(->> rotated-clipped
 			(mirror [1 0 0])
-			(translate [(- (+ mirror-x-gap 12)) (- (+ mirror-y-gap 12)) 0])
+			(translate [(- (- -14 mirror-x-gap)) (- (+ mirror-y-gap 12)) 0])
 		)
 	)
 )

@@ -39,8 +39,14 @@ union () {
           translate ([72.7965,-100.80449999999998,0]) {
             cylinder (h=250, r=3.282, center=true);
           }
-          translate ([-10,0,25]) {
-            cube([157.087, 190.139, 60], center=true);
+          translate ([10,0,25]) {
+            cube([157.087, 192.139, 60], center=true);
+          }
+          translate ([0,0,15]) {
+            cube([166.65099999999998, 185.139, 60], center=true);
+          }
+          translate ([0,0,15]) {
+            cube([135.587, 219.703, 60], center=true);
           }
         }
       }
@@ -49,7 +55,7 @@ union () {
       cube([1000, 1000, 100], center=true);
     }
   }
-  translate ([-24,-16,0]) {
+  translate ([19,-17,0]) {
     mirror ([1,0,0]) {
       difference () {
         rotate (a=3.5, v=[1,0,0]) {
@@ -91,8 +97,14 @@ union () {
               translate ([72.7965,-100.80449999999998,0]) {
                 cylinder (h=250, r=3.282, center=true);
               }
-              translate ([-10,0,25]) {
-                cube([157.087, 190.139, 60], center=true);
+              translate ([10,0,25]) {
+                cube([157.087, 192.139, 60], center=true);
+              }
+              translate ([0,0,15]) {
+                cube([166.65099999999998, 185.139, 60], center=true);
+              }
+              translate ([0,0,15]) {
+                cube([135.587, 219.703, 60], center=true);
               }
             }
           }

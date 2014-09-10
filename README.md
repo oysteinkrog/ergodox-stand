@@ -3,6 +3,8 @@ A forked ergodox-tent with tilting and much more
 # Big fat warning
 **_I have not yet printed or tested my forked version. Use with caution._**
 
+New (10 September 2014): I have a full-hand version ordered from a local printer, and a "standard" version ordered from Shapeways, so I'll be able to test both designs soon. I chose different angles for each just to cover my bases.
+
 ## The design
 ![design](resources/stand.png)
 

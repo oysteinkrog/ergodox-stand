@@ -103,12 +103,11 @@
 						(+ (/ rect-depth 2) 1.129)
 						0]))
 
-		; this hole never gets printed
 		; middle left (bottom left on standard case)
-		; (->> nut-hole
-		; 	(translate [(+ (/ rect-width 2) 1.129 -148.553)
-		; 				(+ (/ rect-depth 2) 1.129 -124.315)
-		; 				0]))
+		 (->> nut-hole
+		 	(translate [(+ (/ rect-width 2) 1.129 -148.553)
+		 				(+ (/ rect-depth 2) 1.129 -124.315)
+		 				0]))
 
 		; middle-middle (bottom middle on standard case)
 		(->> nut-hole

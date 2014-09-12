@@ -30,6 +30,9 @@ union () {
           translate ([-73.8805,101.19850000000001,0]) {
             cylinder (h=250, r=3.282, center=true);
           }
+          translate ([-73.8805,-23.116499999999988,0]) {
+            cylinder (h=250, r=3.282, center=true);
+          }
           translate ([6.525499999999994,-26.522499999999994,0]) {
             cylinder (h=250, r=3.282, center=true);
           }
@@ -86,6 +89,9 @@ union () {
                 cylinder (h=250, r=3.282, center=true);
               }
               translate ([-73.8805,101.19850000000001,0]) {
+                cylinder (h=250, r=3.282, center=true);
+              }
+              translate ([-73.8805,-23.116499999999988,0]) {
                 cylinder (h=250, r=3.282, center=true);
               }
               translate ([6.525499999999994,-26.522499999999994,0]) {

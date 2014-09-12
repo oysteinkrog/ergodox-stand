@@ -1,9 +1,16 @@
 A forked ergodox-tent with tilting and much more
 
-# Big fat warning
-**_I have not yet printed or tested my forked version. Use with caution._**
+# 11 Sep 2014: Prints received!
 
-New (10 September 2014): I have a full-hand version ordered from a local printer, and a "standard" version ordered from Shapeways, so I'll be able to test both designs soon. I chose different angles for each just to cover my bases.
+I received my printed fullhand stands at 6 degrees tent and 3.5 degrees tilt. Here are the photos!
+
+![bare printed stands](resources/fullhand-printed.jpg)
+![stands with ergodox on them](resources/fullhand-with-ergodox.jpg)
+![underside shot](resources/fullhand-underside.jpg)
+
+Can you see what I forgot? The middle left nut hole :( Therefore I had to remove that screw from each hand. I have since corrected the code and sample STL/SCAD files.
+
+The standard-size test print from Shapeways is in the mail now.
 
 ## The design
 ![design](resources/stand.png)

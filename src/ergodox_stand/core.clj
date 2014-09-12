@@ -58,7 +58,7 @@
 (def tilt-slope (* tilt-degrees (/ Math/PI 180)))
 
 (def screw-radius 1.641)
-(def nut-radius (* 2 screw-radius))
+(def nut-radius (* 2 (+ screw-radius 0.125)))
 
 (def nut-hole
 	(cylinder nut-radius (* 5 profile-height)))

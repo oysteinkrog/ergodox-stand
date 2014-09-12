@@ -8,7 +8,7 @@ I received my printed fullhand stands at 6 degrees tent and 3.5 degrees tilt. He
 ![stands with ergodox on them](resources/fullhand-with-ergodox.jpg)
 ![underside shot](resources/fullhand-underside.jpg)
 
-Can you see what I forgot? The middle left nut hole :( Therefore I had to remove that screw from each hand. I have since corrected the code and sample STL/SCAD files.
+Can you see what I forgot? The middle outside nut holes :( Therefore I had to remove that screw from each hand. I have since corrected the code and sample STL/SCAD files.
 
 The standard-size test print from Shapeways is in the mail now.
 

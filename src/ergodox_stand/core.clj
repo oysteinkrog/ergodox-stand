@@ -154,12 +154,16 @@
 	)
 )
 
+(def flipped
+	(->> rotated-clipped (rotate (- tilt-slope) [1 0 0]) (rotate tent-slope [0 1 0]) (rotate Math/PI [0 1 0]))
+)
+
 (def mirrored
 	(union
-		rotated-clipped
-		(->> rotated-clipped
+		flipped
+		(->> flipped
 			(mirror [1 0 0])
-			(translate [(- (- -14 mirror-x-gap)) (- (+ mirror-y-gap 12)) 0])
+			(translate [(- (+ 12 mirror-x-gap)) (- (+ mirror-y-gap 12)) 0])
 		)
 	)
 )

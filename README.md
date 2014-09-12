@@ -2,7 +2,7 @@ A forked ergodox-tent with tilting and much more
 
 # 11 Sep 2014: Prints received!
 
-I received my printed fullhand stands at 6 degrees tent and 3.5 degrees tilt. Here are the photos!
+I received my printed fullhand stands at 6 degrees tent and 3.5 degrees tilt. I had them printed by a local person on makexyz.com, for a small fraction of the price of online printing services. This is white PLA. It fits tight but well. Here are the photos!
 
 ![bare printed stands](resources/fullhand-printed.jpg)
 ![stands with ergodox on them](resources/fullhand-with-ergodox.jpg)

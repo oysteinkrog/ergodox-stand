@@ -84,7 +84,7 @@
 
 
 
-		;; NUT HOLES
+		;; NUT HOLES (directions wrt to left-hand side)
 		; top right
 		(->> nut-hole
 			(translate [(+ (/ rect-width 2) 1.129)
@@ -104,7 +104,7 @@
 						0]))
 
 		; middle left (bottom left on standard case)
-		 (->> nut-hole
+		(->> nut-hole
 		 	(translate [(+ (/ rect-width 2) 1.129 -148.553)
 		 				(+ (/ rect-depth 2) 1.129 -124.315)
 		 				0]))
@@ -114,6 +114,16 @@
 			(translate [(+ (/ rect-width 2) 1.129 -68.147)
 						(+ (/ rect-depth 2) 1.129 -127.721)
 						0]))
+
+		; false middle-right hole, for material savings in standard-size leg
+		(if (= rect-depth standard-depth)
+			(->> nut-hole
+				(translate [(+ (/ rect-width 2) 1.129)
+							(+ (/ rect-depth 2) 1.129 -127.721)
+							0])
+			)
+			nil
+		)
 
 		; bottom left
 		(->> nut-hole

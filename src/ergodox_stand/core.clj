@@ -25,7 +25,7 @@
 
 ; Angles for tenting and tilting, to your preferences
 (def tent-degrees 6)			; side-to-side angle
-(def tilt-degrees 3.5)			; front-to-back angle
+(def tilt-degrees -3.5)			; front-to-back angle
 
 ; Baseline height determines how far down to clip the bottom flat.
 ; You probably want a complete model with at least 5mm extra for screws and

@@ -1,9 +1,9 @@
 union () {
   rotate (a=180.0, v=[0,1,0]) {
     rotate (a=6.0, v=[0,1,0]) {
-      rotate (a=-3.5, v=[1,0,0]) {
+      rotate (a=3.5, v=[1,0,0]) {
         difference () {
-          rotate (a=3.5, v=[1,0,0]) {
+          rotate (a=-3.5, v=[1,0,0]) {
             rotate (a=-6.0, v=[0,1,0]) {
               difference () {
                 translate ([0,0,25]) {
@@ -68,9 +68,9 @@ union () {
     mirror ([1,0,0]) {
       rotate (a=180.0, v=[0,1,0]) {
         rotate (a=6.0, v=[0,1,0]) {
-          rotate (a=-3.5, v=[1,0,0]) {
+          rotate (a=3.5, v=[1,0,0]) {
             difference () {
-              rotate (a=3.5, v=[1,0,0]) {
+              rotate (a=-3.5, v=[1,0,0]) {
                 rotate (a=-6.0, v=[0,1,0]) {
                   difference () {
                     translate ([0,0,25]) {

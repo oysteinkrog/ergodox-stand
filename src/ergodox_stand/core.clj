@@ -27,6 +27,12 @@
 (def tent-degrees 6)			; side-to-side angle
 (def tilt-degrees -3.5)			; front-to-back angle
 
+(def pillar-size 17)			; width/depth of each pillar
+
+(def foot-radius 6.5)
+(def foot-height 1)
+(def foot-offset -3)
+
 ; Baseline height determines how far down to clip the bottom flat.
 ; You probably want a complete model with at least 5mm extra for screws and
 ; nuts to hang down.
@@ -37,6 +43,7 @@
 ; few mm apart.
 (def mirror-x-gap 5)			; side-to-side gap between mirrored pieces
 (def mirror-y-gap 5)			; back-to-front gap between mirrored pieces
+
 
 ;; STOP CUSTOMIZING
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -63,6 +70,13 @@
 (def nut-hole
 	(cylinder nut-radius (* 5 profile-height)))
 
+(def foot-hole
+  (translate [(- 0 nut-radius) nut-radius foot-height]
+             (cylinder foot-radius 100)
+           )
+)
+
+
 (def main-base
 	(difference
 
@@ -86,10 +100,10 @@
 
 		;; NUT HOLES (directions wrt to left-hand side)
 		; top right
-		(->> nut-hole
-			(translate [(+ (/ rect-width 2) 1.129)
-						(+ (/ rect-depth 2) 1.129)
-						0]))
+        (->> nut-hole
+            (translate [(+ (/ rect-width 2) 1.129)
+                        (+ (/ rect-depth 2) 1.129)
+                        0]))
 
 		; top middle
 		(->> nut-hole
@@ -137,30 +151,73 @@
 						(+ (/ rect-depth 2) 1.129 -202.003)
 						0]))
 
-
-
 		;; HOLLOWED-OUT AREAS
 		; The more you hollow out, the cheaper!
-		(translate [10 0 (/ profile-height 2)]
-			(cube (+ rect-width 10) (- rect-depth 8) (+ profile-height 10))
-		)
+        ;(translate [10 0 (/ profile-height 2)]
+            ;(cube (+ rect-width 10) (- rect-depth pillar-size) (+ profile-height 10))
+        ;)
+        (translate [0 0 (/ profile-height 2)]
+            (cube (- rect-width pillar-size) (- rect-depth pillar-size) (+ profile-height 10))
+        )
 
+        (translate [0 0 (/ profile-height 2)]
+            (cube (- rect-width 10) (- rect-depth pillar-size) (+ profile-height 10))
+        )
+
+        (translate [0 0 (/ profile-height 2)]
+            (cube (- rect-width pillar-size) (- rect-depth 8) (+ profile-height 10))
+        )
+
+        (translate [20 0 (/ profile-height 2)]
+            (cube (- rect-width 10) (- rect-depth pillar-size) (+ profile-height 10))
+        )
 		; Lateral underside hollowing
 		(translate [0 0 (+ -10 (/ profile-height 2))]
-			(cube (+ 5 total-width) (- rect-depth 15) (+ profile-height 10))
+			(cube (+ 5 total-width) (- rect-depth pillar-size) (+ profile-height 10))
 		)
 
 		; Front-back underside hollowing
 		(translate [0 0 (+ -10 (/ profile-height 2))]
-			(cube (- rect-width 11.5) (+ 5 total-depth) (+ profile-height 10))
+			(cube (- rect-width pillar-size) (+ 5 total-depth) (+ profile-height 10))
 		)
 	) ; difference
 ) ; def main-base
 
+(def main-clip
+  (union
+    (cube 1000 1000 100)
+
+    ; top right
+    (->> foot-hole
+         (translate [(+ (/ rect-width 2) 1.129 foot-offset 1)
+                     (+ (/ rect-depth 2) 1.129 foot-offset 0)
+                     0]))
+
+    ; top left
+    (->> foot-hole
+         (translate[(+ (/ rect-width 2) 1.129 -148.553 (- 0 foot-offset) -3)
+                     (+ (/ rect-depth 2) 1.129 foot-offset 0)
+                     0]))
+
+    ; bottom left
+    (->> foot-hole
+         (translate [(+ (/ rect-width 2) 1.129 -148.553 (- 0 foot-offset) -1)
+                     (+ (/ rect-depth 2) 1.129 -201.611 (- 0 foot-offset) -4)
+                     0]))
+
+    ; bottom right
+    (->> foot-hole
+         (translate [(+ (/ rect-width 2) 1.129 -1.876 foot-offset 4)
+                     (+ (/ rect-depth 2) 1.129 -202.003 (- 0 foot-offset) -4)
+                     0]))
+
+    )
+  )
+
 (def rotated-clipped
 	(difference
 		(->> main-base (rotate (- tent-slope) [0 1 0]) (rotate tilt-slope [1 0 0]))
-		(translate [0 0 (- baseline-height-adjust)] (cube 1000 1000 100))
+		(translate [0 0 (- baseline-height-adjust)] main-clip)
 	)
 )
 
@@ -168,14 +225,16 @@
 	(->> rotated-clipped (rotate (- tilt-slope) [1 0 0]) (rotate tent-slope [0 1 0]) (rotate Math/PI [0 1 0]))
 )
 
-(def mirrored
-	(union
-		flipped
-		(->> flipped
-			(mirror [1 0 0])
-			(translate [(- (+ 12 mirror-x-gap)) (- (+ mirror-y-gap 12)) 0])
-		)
-	)
+(def right
+  (->> flipped
+       (mirror [1 0 0])
+       (translate [(- (+ 12 mirror-x-gap)) (- (+ mirror-y-gap 12)) 0])
+     )
 )
 
-(spit "resources/stand.scad" (write-scad mirrored))
+(def left
+  flipped
+)
+
+(spit "resources/stand-right.scad" (write-scad right))
+(spit "resources/stand-left.scad" (write-scad left))
